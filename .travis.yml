@@ -1,6 +1,7 @@
 branches:
   only:
-    - master
+    - main
+    - Refactor
 
 language: node_js
 node_js:
