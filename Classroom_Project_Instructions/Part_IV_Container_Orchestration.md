@@ -87,10 +87,19 @@ kubectl apply -f env-secret.yaml
 kubectl apply -f env-configmap.yaml
 # Deployments - Double check the Dockerhub image name and version in the deployment files
 kubectl apply -f backend-feed-deployment.yaml
+kubectl apply -f backend-user-deployment.yaml
+kubectl apply -f frontend-deployment.yaml
+kubectl apply -f reverseproxy-deployment.yaml
 # Do the same for other three deployment files
 # Service
 kubectl apply -f backend-feed-service.yaml
+kubectl apply -f backend-user-service.yaml
+kubectl apply -f frontend-service.yaml
+kubectl apply -f reverseproxy-service.yaml
+
+
 # Do the same for other three service files
+
 ```
 Make sure to check the image names in the deployment files above. 
 
@@ -150,7 +159,7 @@ Next, re-apply configmap and re-deploy to the k8s cluster.
 ```bash
 kubectl apply -f env-configmap.yaml
 # Rolling update "frontend" containers of "frontend" deployment, updating the image
-kubectl set image deployment frontend frontend=sudkul/udagram-frontend:v3
+kubectl set image deployment frontend frontend=ravimikepersonaldocker/udagram-frontend:v3
 # Do the same for other three deployments
 ```
 Check your deployed application at the External IP of your *publicfrontend* service. 
